@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout Process</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#ea2a33",
+                "background-light": "#f8f6f6",
+                "background-dark": "#211111",
+                },
+                fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/30">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-hidden max-w-md mx-auto bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-20 flex items-center justify-between px-4 py-3 bg-background-light dark:bg-background-dark/95 backdrop-blur-sm">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-white">Checkout</h2>
+<div class="size-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Progress Stepper -->
+<div class="px-6 py-4 bg-background-light dark:bg-background-dark">
+<div class="relative flex items-center justify-between w-full">
+<!-- Line -->
+<div class="absolute top-1/2 left-0 h-[2px] w-full -translate-y-1/2 bg-gray-200 dark:bg-gray-700 z-0"></div>
+<!-- Step 1: Active -->
+<div class="relative z-10 flex flex-col items-center gap-1 group">
+<div class="flex size-8 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30 ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+</div>
+<span class="text-xs font-semibold text-primary absolute -bottom-6 w-max">Shipping</span>
+</div>
+<!-- Step 2: Inactive -->
+<div class="relative z-10 flex flex-col items-center gap-1 group">
+<div class="flex size-8 items-center justify-center rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500 ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined text-[16px]">credit_card</span>
+</div>
+</div>
+<!-- Step 3: Inactive -->
+<div class="relative z-10 flex flex-col items-center gap-1 group">
+<div class="flex size-8 items-center justify-center rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500 ring-4 ring-background-light dark:ring-background-dark">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content (Scrollable) -->
+<main class="flex-1 overflow-y-auto pb-32 px-4 space-y-6 pt-4">
+<!-- Shipping Section -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Shipping Address</h3>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Name Row -->
+<div class="flex gap-3">
+<label class="flex flex-col flex-1 gap-1.5">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 pl-1">First Name</span>
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-white dark:bg-[#2a1a1a] px-4 py-3 text-sm font-medium text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:focus:ring-primary/50 transition-all shadow-sm" placeholder="John" type="text"/>
+</label>
+<label class="flex flex-col flex-1 gap-1.5">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 pl-1">Last Name</span>
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-white dark:bg-[#2a1a1a] px-4 py-3 text-sm font-medium text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:focus:ring-primary/50 transition-all shadow-sm" placeholder="Doe" type="text"/>
+</label>
+</div>
+<!-- Street Address -->
+<label class="flex flex-col gap-1.5">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 pl-1">Street Address</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-slate-400 text-[20px]">home</span>
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-white dark:bg-[#2a1a1a] pl-10 pr-4 py-3 text-sm font-medium text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:focus:ring-primary/50 transition-all shadow-sm" placeholder="123 Main St, Apt 4B" type="text"/>
+</div>
+</label>
+<!-- City & Zip -->
+<div class="flex gap-3">
+<label class="flex flex-col flex-[2] gap-1.5">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 pl-1">City</span>
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-white dark:bg-[#2a1a1a] px-4 py-3 text-sm font-medium text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:focus:ring-primary/50 transition-all shadow-sm" placeholder="New York" type="text"/>
+</label>
+<label class="flex flex-col flex-1 gap-1.5">
+<span class="text-xs font-semibold text-slate-500 dark:text-slate-400 pl-1">Zip Code</span>
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-white dark:bg-[#2a1a1a] px-4 py-3 text-sm font-medium text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary dark:focus:ring-primary/50 transition-all shadow-sm" placeholder="10001" type="tel"/>
+</label>
+</div>
+</div>
+<!-- Shipping Method Toggle -->
+<div class="mt-2">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white mb-3">Shipping Method</h4>
+<div class="grid grid-cols-2 gap-3">
+<label class="relative cursor-pointer">
+<input checked="" class="peer sr-only" name="shipping" type="radio"/>
+<div class="flex flex-col gap-1 p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#2a1a1a] peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/10 transition-all">
+<span class="text-xs font-bold text-slate-900 dark:text-white">Standard</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">5-7 Days</span>
+<span class="text-sm font-bold text-primary mt-1">Free</span>
+</div>
+<div class="absolute top-3 right-3 opacity-0 peer-checked:opacity-100 text-primary transition-opacity">
+<span class="material-symbols-outlined text-[18px] font-bold">check_circle</span>
+</div>
+</label>
+<label class="relative cursor-pointer">
+<input class="peer sr-only" name="shipping" type="radio"/>
+<div class="flex flex-col gap-1 p-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#2a1a1a] peer-checked:border-primary peer-checked:bg-primary/5 dark:peer-checked:bg-primary/10 transition-all">
+<span class="text-xs font-bold text-slate-900 dark:text-white">Express</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">1-2 Days</span>
+<span class="text-sm font-bold text-slate-900 dark:text-white mt-1">$12.00</span>
+</div>
+<div class="absolute top-3 right-3 opacity-0 peer-checked:opacity-100 text-primary transition-opacity">
+<span class="material-symbols-outlined text-[18px] font-bold">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<div class="h-px w-full bg-gray-200 dark:bg-gray-800"></div>
+<!-- Payment Preview (Collapsed state implication or next step) -->
+<section class="opacity-50 pointer-events-none filter grayscale">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Payment</h3>
+<span class="material-symbols-outlined text-slate-400">lock</span>
+</div>
+<div class="p-4 rounded-xl border border-dashed border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-[#2a1a1a]/50 text-center">
+<p class="text-sm text-slate-500">Step 2: Payment Details</p>
+</div>
+</section>
+<!-- Order Review Preview -->
+<section class="opacity-50 pointer-events-none filter grayscale">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Order Review</h3>
+</div>
+<div class="flex gap-3 mb-2">
+<div class="size-16 rounded-lg bg-gray-200 dark:bg-gray-700 overflow-hidden relative">
+<!-- Abstract Placeholder -->
+<img alt="Product" class="object-cover w-full h-full" data-alt="Modern white watch product thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKE7oTAnsbyb4dxG5RwtwIZwxyU2YeplOamMWxexQ6qJ4pOkp2nSpUtS9U9W3QC72Zb-Sfm_N3N15adwyn9Ckt-82c5NGYS8hmjIqApkcY6EyeCrX_GEBBK7X8rbJo7Wd2XUR-6i-Qcql6rQpf78piR4yX6WCkj8tpOHShe--6Irj7EU-kUIWpy3rRE8PpsMrXuOkS9kHEdiiYzYmoI5Nb0TLdCmiEANgVa259Iyvke3vyIE3-9C5CsmZxu0hFC0yan75WN_Sn9K0"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-bold text-sm text-slate-900 dark:text-white">Minimalist Watch</p>
+<p class="text-xs text-slate-500">$125.00</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Footer -->
+<footer class="absolute bottom-0 left-0 w-full bg-white dark:bg-[#2a1a1a] border-t border-gray-100 dark:border-gray-800 p-5 shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.05)] z-20">
+<div class="flex justify-between items-end mb-4">
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Total Price</span>
+<span class="text-2xl font-bold text-slate-900 dark:text-white">$125.00</span>
+</div>
+<div class="flex items-center gap-1 text-xs text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px]">local_offer</span>
+<span>Free Shipping</span>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-red-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 active:scale-[0.98] transition-all">
+<span>Continue to Payment</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</footer>
+</div>
+</body></html>

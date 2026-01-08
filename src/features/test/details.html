@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail Page</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                        "text-light": "#1b0e0e",
+                        "text-dark": "#ffffff",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d1b1b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark antialiased transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-32">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between bg-background-light/90 dark:bg-background-dark/90 px-4 py-3 backdrop-blur-md">
+<button class="flex size-10 items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark shadow-sm transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">arrow_back</span>
+</button>
+<div class="flex items-center gap-3">
+<button class="flex size-10 items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark shadow-sm transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">favorite</span>
+</button>
+<button class="relative flex size-10 items-center justify-center rounded-full bg-surface-light dark:bg-surface-dark shadow-sm transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-text-light dark:text-text-dark">shopping_bag</span>
+<span class="absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">2</span>
+</button>
+</div>
+</header>
+<!-- Product Image Carousel -->
+<div class="relative mt-2 w-full px-4">
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-gray-200 dark:bg-gray-800">
+<div class="h-full w-full bg-cover bg-center" data-alt="Close up of red running shoe on minimal background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDYtu8jM5nhEZSFb00WJMWo_qmF-1Sn3OjCpLNrwtAPI4_M3zeL2D3hBIFIajaPvRYEPQZ8Dw9DIge_vWx-z3E9EWID4g50newYbzPmCysiam8ILmyfKar-El0blh8QLbI60qXFcbTSE73OLz9UP9x6UWZ-NGR5O60mOdb8A5dqgPJUjIXhJXxFcmGfa5NJRn5RTlGb2HO_ghh7XToiI8PnoM4tDOR_FgG9bHQB1j21fGwYFzhXJBKV-3LrO0qzaYEzUhnXlev-hOw');">
+</div>
+<!-- Pagination Dots -->
+<div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+<div class="h-2 w-6 rounded-full bg-white shadow-sm"></div>
+<div class="h-2 w-2 rounded-full bg-white/50 shadow-sm backdrop-blur-sm"></div>
+<div class="h-2 w-2 rounded-full bg-white/50 shadow-sm backdrop-blur-sm"></div>
+<div class="h-2 w-2 rounded-full bg-white/50 shadow-sm backdrop-blur-sm"></div>
+</div>
+<div class="absolute right-4 top-4 rounded-lg bg-surface-light/80 dark:bg-surface-dark/80 px-2 py-1 text-xs font-bold text-primary backdrop-blur-md">
+                    -20% OFF
+                </div>
+</div>
+</div>
+<!-- Product Info Header -->
+<div class="px-4 pt-6">
+<div class="flex items-start justify-between">
+<div>
+<h1 class="text-2xl font-bold leading-tight tracking-tight md:text-3xl">Nike Air Zoom Pegasus 38</h1>
+<p class="mt-1 text-sm font-medium text-gray-500 dark:text-gray-400">Running Shoes</p>
+</div>
+</div>
+<div class="mt-4 flex items-end gap-3">
+<h2 class="text-3xl font-extrabold tracking-tight text-primary">$120.00</h2>
+<span class="mb-1.5 text-lg font-medium text-gray-400 line-through dark:text-gray-600">$150.00</span>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<div class="flex items-center text-yellow-400">
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<span class="text-sm font-bold">4.2</span>
+<span class="text-sm text-gray-500 dark:text-gray-400">(320 Reviews)</span>
+</div>
+</div>
+<div class="my-6 h-px w-full bg-gray-200 dark:bg-gray-800"></div>
+<!-- Selectors -->
+<div class="flex flex-col gap-6 px-4">
+<!-- Color Selector -->
+<div>
+<h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Color</h3>
+<div class="flex items-center gap-4">
+<button class="group relative size-12 rounded-full border-2 border-transparent p-0.5 focus:outline-none ring-2 ring-primary ring-offset-2 dark:ring-offset-background-dark">
+<div aria-label="Red" class="h-full w-full rounded-full bg-[#ea2a33]"></div>
+</button>
+<button class="group relative size-12 rounded-full border-2 border-transparent p-0.5 focus:outline-none hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 dark:hover:ring-offset-background-dark">
+<div aria-label="Black" class="h-full w-full rounded-full bg-[#111111] shadow-sm ring-1 ring-white/10"></div>
+</button>
+<button class="group relative size-12 rounded-full border-2 border-transparent p-0.5 focus:outline-none hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 dark:hover:ring-offset-background-dark">
+<div aria-label="White" class="h-full w-full rounded-full bg-[#f0f0f0] shadow-sm"></div>
+</button>
+<button class="group relative size-12 rounded-full border-2 border-transparent p-0.5 focus:outline-none hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 dark:hover:ring-offset-background-dark">
+<div aria-label="Blue" class="h-full w-full rounded-full bg-[#3b82f6] shadow-sm"></div>
+</button>
+</div>
+</div>
+<!-- Size Selector -->
+<div>
+<div class="mb-3 flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Size (US)</h3>
+<a class="text-sm font-semibold text-primary" href="#">Size Guide</a>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="flex h-12 w-16 items-center justify-center rounded-xl border border-gray-200 bg-transparent text-sm font-bold text-gray-900 transition-colors hover:border-primary dark:border-gray-700 dark:text-white dark:hover:border-primary">
+                        6
+                    </button>
+<button class="flex h-12 w-16 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white shadow-lg shadow-primary/30 transition-colors">
+                        7
+                    </button>
+<button class="flex h-12 w-16 items-center justify-center rounded-xl border border-gray-200 bg-transparent text-sm font-bold text-gray-900 transition-colors hover:border-primary dark:border-gray-700 dark:text-white dark:hover:border-primary">
+                        8
+                    </button>
+<button class="flex h-12 w-16 items-center justify-center rounded-xl border border-gray-200 bg-transparent text-sm font-bold text-gray-900 transition-colors hover:border-primary dark:border-gray-700 dark:text-white dark:hover:border-primary">
+                        9
+                    </button>
+<button class="flex h-12 w-16 items-center justify-center rounded-xl border border-gray-200 bg-gray-100 text-sm font-bold text-gray-400 opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-600">
+                        10
+                    </button>
+</div>
+</div>
+</div>
+<div class="my-6 h-px w-full bg-gray-200 dark:bg-gray-800"></div>
+<!-- Description -->
+<div class="px-4">
+<h3 class="mb-3 text-lg font-bold">Description</h3>
+<div class="relative">
+<p class="text-base leading-relaxed text-gray-600 dark:text-gray-300">
+                    Your workhorse with wings returns. The Nike Air Zoom Pegasus 38 continues to put a spring in your step, using the same responsive foam as its predecessor. Mesh in the upper combines the comfort and durability you want with a wider fit at the toes.
+                </p>
+<button class="mt-2 text-sm font-bold text-primary">Read More</button>
+</div>
+</div>
+<div class="my-6 h-px w-full bg-gray-200 dark:bg-gray-800"></div>
+<!-- Reviews Summary -->
+<div class="px-4">
+<div class="mb-4 flex items-center justify-between">
+<h3 class="text-lg font-bold">Reviews</h3>
+<a class="text-sm font-bold text-primary" href="#">See All</a>
+</div>
+<!-- Rating Stats Block -->
+<div class="mb-6 flex flex-wrap gap-x-8 gap-y-4 rounded-2xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-4xl font-black leading-tight tracking-tight">4.2</p>
+<div class="flex gap-0.5 text-yellow-400">
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400">320 ratings</p>
+</div>
+<div class="flex-1 min-w-[140px] grid grid-cols-[12px_1fr_30px] items-center gap-y-1.5 text-xs">
+<span class="text-right text-gray-600 dark:text-gray-300">5</span>
+<div class="mx-2 h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="h-full rounded-full bg-primary w-[60%]"></div>
+</div>
+<span class="text-right font-medium text-gray-500">60%</span>
+<span class="text-right text-gray-600 dark:text-gray-300">4</span>
+<div class="mx-2 h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="h-full rounded-full bg-primary w-[20%]"></div>
+</div>
+<span class="text-right font-medium text-gray-500">20%</span>
+<span class="text-right text-gray-600 dark:text-gray-300">3</span>
+<div class="mx-2 h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="h-full rounded-full bg-primary w-[10%]"></div>
+</div>
+<span class="text-right font-medium text-gray-500">10%</span>
+<span class="text-right text-gray-600 dark:text-gray-300">2</span>
+<div class="mx-2 h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="h-full rounded-full bg-primary w-[5%]"></div>
+</div>
+<span class="text-right font-medium text-gray-500">5%</span>
+<span class="text-right text-gray-600 dark:text-gray-300">1</span>
+<div class="mx-2 h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+<div class="h-full rounded-full bg-primary w-[5%]"></div>
+</div>
+<span class="text-right font-medium text-gray-500">5%</span>
+</div>
+</div>
+<!-- Horizontal Scroll Reviews -->
+<div class="no-scrollbar -mx-4 flex gap-4 overflow-x-auto px-4 pb-4">
+<!-- Review Card 1 -->
+<div class="min-w-[280px] rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm">
+<div class="mb-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-gray-300 bg-cover bg-center" data-alt="Avatar of user John Doe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeethEooMNfwpOLh5zj7xxvGKfBtTBJxqFI9OV39K_AuOcGwRv4pQU-giSdMLr-pMZ5BMi-YCDqY7jwaz-lKp2nz0evomT-h5p_DDmillaeYnNFuGTCDZKt00W8_Jy0CnkqWb2T8Eo9gTrzfOmvX1QMDShDTe9FK8DMcGdRNj0LnpEWAcqAKBBrGV3FVjWxw2PNtIHOd-OvCBEDvo5nI2uvuUjnMO3SbxTrGtTjihWZq4Wy_XjHfAf-Fd6-AM3CQVrm4JlVOxGqM4');"></div>
+<span class="font-bold text-sm">John D.</span>
+</div>
+<span class="text-xs text-gray-500">2 days ago</span>
+</div>
+<div class="mb-2 flex text-yellow-400">
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+</div>
+<p class="text-sm leading-snug text-gray-600 dark:text-gray-300">Great fit! The color is even more vibrant in person. Very comfortable for long runs.</p>
+</div>
+<!-- Review Card 2 -->
+<div class="min-w-[280px] rounded-xl bg-surface-light dark:bg-surface-dark p-4 shadow-sm">
+<div class="mb-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-8 rounded-full bg-gray-300 bg-cover bg-center" data-alt="Avatar of user Sarah M" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_h6mcluCWKBoiNdtiFIRJra10YuJBOIVddvw0ilaRtjtZfVWdzE214x8Ch-_PYdUqAEXEJ_H9AuL89qMkdpDNru00wP997nm8GtmmEirHB-Kc_XVwOrNXfkBZhX9iSWyV--G4dg8wIZUARzoWCq4oEc-GAjGesdfqvgPP3l6ZUH8lVX3SD6-4hMrMH2oV05PMVrSkLwS0NVWsOcR0inXpnvwvapHJLKKrnqiDR_rM6TyEaTwhz7g1eVkHcO_rAaS2RQj8Ots-nXo');"></div>
+<span class="font-bold text-sm">Sarah M.</span>
+</div>
+<span class="text-xs text-gray-500">1 week ago</span>
+</div>
+<div class="mb-2 flex text-yellow-400">
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined fill text-[14px]">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+<p class="text-sm leading-snug text-gray-600 dark:text-gray-300">Love the design, but sizing runs a bit small. I recommend going half a size up.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Bottom Bar -->
+<div class="fixed bottom-0 left-0 z-40 w-full border-t border-gray-100 bg-surface-light/95 dark:border-gray-800 dark:bg-surface-dark/95 backdrop-blur-md pb-safe">
+<div class="mx-auto flex w-full max-w-md items-center justify-between gap-4 px-4 py-3">
+<!-- Quantity Stepper -->
+<div class="flex h-12 items-center rounded-xl bg-gray-100 dark:bg-gray-800 px-3">
+<button class="flex size-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-white hover:text-primary dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="mx-3 min-w-[1ch] text-center font-bold">1</span>
+<button class="flex size-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-white hover:text-primary dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Add to Cart Button -->
+<button class="group flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-6 font-bold text-white shadow-lg shadow-primary/30 transition-all hover:bg-red-600 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+<!-- Safe Area Spacer for iOS Home Indicator -->
+<div class="h-6 w-full"></div>
+</div>
+</body></html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Listing Page</title>
+<!-- Material Symbols Link -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        /* Custom scrollbar hiding */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b0e0e] dark:text-white font-display">
+<div class="relative flex h-full w-full flex-col max-w-md mx-auto min-h-screen bg-background-light dark:bg-background-dark shadow-xl overflow-hidden">
+<!-- Sticky Header Group -->
+<div class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800">
+<!-- TopAppBar -->
+<div class="flex items-center p-4 pb-2 justify-between">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[#1b0e0e] dark:text-white" style="font-size: 24px;">arrow_back</span>
+</button>
+<h2 class="text-[#1b0e0e] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Men's Sneakers</h2>
+<div class="flex items-center justify-end w-10">
+<button class="relative flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[#1b0e0e] dark:text-white" style="font-size: 24px;">shopping_cart</span>
+<!-- Notification Badge -->
+<span class="absolute top-2 right-1 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-primary ring-2 ring-white dark:ring-[#211111]"></span>
+</button>
+</div>
+</div>
+<!-- SearchBar -->
+<div class="px-4 py-2">
+<label class="flex flex-col h-11 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-white dark:bg-[#2a1a1a] shadow-sm border border-gray-100 dark:border-gray-800">
+<div class="flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500" style="font-size: 20px;">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg bg-transparent text-[#1b0e0e] dark:text-white focus:outline-0 focus:ring-0 border-none placeholder:text-gray-400 dark:placeholder:text-gray-500 px-3 text-sm font-normal leading-normal" placeholder="Search products..." value=""/>
+<button class="flex items-center justify-center pr-3">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">tune</span>
+</button>
+</div>
+</label>
+</div>
+<!-- Filter Chips (Horizontal Scroll) -->
+<div class="flex gap-2 px-4 py-3 overflow-x-auto scrollbar-hide">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary text-white pl-4 pr-4 transition-transform active:scale-95 shadow-md shadow-primary/20">
+<p class="text-sm font-medium leading-normal">All</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2a1a1a] border border-gray-100 dark:border-gray-800 pl-3 pr-3 transition-colors active:bg-gray-50 dark:active:bg-gray-800">
+<span class="material-symbols-outlined text-[#1b0e0e] dark:text-white" style="font-size: 18px;">sort</span>
+<p class="text-[#1b0e0e] dark:text-white text-sm font-medium leading-normal">Sort</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2a1a1a] border border-gray-100 dark:border-gray-800 pl-3 pr-3 transition-colors active:bg-gray-50 dark:active:bg-gray-800">
+<span class="material-symbols-outlined text-[#1b0e0e] dark:text-white" style="font-size: 18px;">sell</span>
+<p class="text-[#1b0e0e] dark:text-white text-sm font-medium leading-normal">On Sale</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2a1a1a] border border-gray-100 dark:border-gray-800 pl-3 pr-3 transition-colors active:bg-gray-50 dark:active:bg-gray-800">
+<p class="text-[#1b0e0e] dark:text-white text-sm font-medium leading-normal">Running</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-[#2a1a1a] border border-gray-100 dark:border-gray-800 pl-3 pr-3 transition-colors active:bg-gray-50 dark:active:bg-gray-800">
+<p class="text-[#1b0e0e] dark:text-white text-sm font-medium leading-normal">Lifestyle</p>
+</button>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto pb-24">
+<!-- Result Count -->
+<div class="px-4 py-2 flex items-center justify-between">
+<p class="text-sm font-semibold text-[#1b0e0e] dark:text-white">142 Results</p>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-gray-400 text-lg">grid_view</span>
+<span class="material-symbols-outlined text-gray-300 text-lg">view_list</span>
+</div>
+</div>
+<!-- ImageGrid -->
+<div class="grid grid-cols-2 gap-x-4 gap-y-6 px-4 pb-4">
+<!-- Product 1 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-3">
+<div class="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition hover:bg-white dark:hover:bg-black">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 block" style="font-size: 20px;">favorite</span>
+</div>
+<div class="absolute top-2 left-2 z-10 px-2 py-1 rounded-md bg-primary text-white text-[10px] font-bold uppercase tracking-wide">
+                            -20% Sale
+                        </div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Red running shoe on a minimal background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0jqcoxXMM0P3tMl0FlPhsFF0bDDsShwGqkP5SqLxcipX9DcYSeAvYZgc5YcTjSfk4-bUJZzGEfU6D74w1GDg2Tthq2JP9ckJBZ35eFDL2AGSoryhcn118Max8U6dOH02zOZLE4VMr-0EgC_wWf6vHeQrb40j3LwN0hUzu2LwulR-wrOqp3QOZljynnoq1xnVSi5vBXeP_T3TGztkiCg1DXL3wv9lF8TiCg3L8kb1TEFKChU1jqasIQTbJExGXEUI1pmQL4Uh7TCw");'></div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#1b0e0e] dark:text-white text-sm font-semibold leading-tight line-clamp-2 h-10">Nike Air Zoom Pegasus</h3>
+<div class="flex items-center gap-2">
+<p class="text-primary text-base font-bold leading-normal">$120.00</p>
+<p class="text-gray-400 text-xs font-medium line-through">$150.00</p>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500" style="font-size: 14px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-gray-500 dark:text-gray-400 text-xs font-medium">4.8 (120)</span>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-3">
+<div class="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition hover:bg-white dark:hover:bg-black">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 block" style="font-size: 20px;">favorite</span>
+</div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="White casual sneaker side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvtzPtykE7axZvDKG2p4vupf_QKWl5qumR4bBeIfSHWPDnyGaQdQ1SaBTfPwXj8SYTEyE-kbhYHgDf6HD2RKo681xO3-t4G335lEN6k0MlkdczefQrIU-S6tP4z07dsCdVrJ2nwGsShjySbYy2gkuSnWAdvgye8B4q7NptSOfByEMapTSGqf7I72ZH78AtmCVkY7XKqzpwu9GY1r42KbabSkty7cQHt4KWDsY142uxjjeSJRkcVKv7EEnWzODfOvWJSSsPeHHyWHo");'></div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#1b0e0e] dark:text-white text-sm font-semibold leading-tight line-clamp-2 h-10">Adidas Stan Smith Sustainable</h3>
+<div class="flex items-center gap-2">
+<p class="text-[#1b0e0e] dark:text-white text-base font-bold leading-normal">$85.00</p>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500" style="font-size: 14px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-gray-500 dark:text-gray-400 text-xs font-medium">4.5 (95)</span>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-3">
+<div class="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition hover:bg-white dark:hover:bg-black">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 block" style="font-size: 20px;">favorite</span>
+</div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Black running shoe with white sole" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqgcuiy-IIUoDaIPTl4E6fO26EQ1PF9V9k6Oe-lWTc_I4VWusxZZilPbh6pi9T4jzX1deR4IBBavgw2lG0JPQ4A4X_3uRMbvYjrd3qvEt5jnyUG3VIP2SKXSzCkSgSOQ1XVQpDi84BVcdPfErrqj9wdTBtS3MIqk8gug7hbMZc7byzI-MpqP4SuiJW_UUB0JRIqNz-LkKoleW2uE7dZhXWf_fym0w1VZX5-qK1P7nwe7tMWKz2ximZQQIakt0gERS9PkHZkATSdZE");'></div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#1b0e0e] dark:text-white text-sm font-semibold leading-tight line-clamp-2 h-10">Puma Velocity Nitro 2</h3>
+<div class="flex items-center gap-2">
+<p class="text-[#1b0e0e] dark:text-white text-base font-bold leading-normal">$110.00</p>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500" style="font-size: 14px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-gray-500 dark:text-gray-400 text-xs font-medium">4.7 (42)</span>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-3">
+<div class="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition hover:bg-white dark:hover:bg-black">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 block" style="font-size: 20px;">favorite</span>
+</div>
+<div class="absolute top-2 left-2 z-10 px-2 py-1 rounded-md bg-gray-900 text-white text-[10px] font-bold uppercase tracking-wide">
+                            New
+                        </div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Blue athletic shoe on grey background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXhaLV4Q2A2hKFBzfw7ALUiuM6UXL7kE5yWe3l-80i4hYRUL7EUcWaQEshU1mQYG0FEKlwtcWjBzvyt42qZ8coZCvGVJBKy7-LnixSlLG_D13EAGNfqKk9vrDqzJyCr5m06JcjC8yRbRQzy_EwZi86j1b5lgkRTn2ROJiiJZDB5B7ln3S0Kj29H0wYq8ZxzBs23yFofNV1NN9oISdrdTPolzKLDW77TTlZN4VNUlkqlMvseCd1oBxEpMqgt-zrT5sgrFQuOaDlRMM");'></div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#1b0e0e] dark:text-white text-sm font-semibold leading-tight line-clamp-2 h-10">Reebok Nano X2 Training</h3>
+<div class="flex items-center gap-2">
+<p class="text-[#1b0e0e] dark:text-white text-base font-bold leading-normal">$130.00</p>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500" style="font-size: 14px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-gray-500 dark:text-gray-400 text-xs font-medium">4.6 (18)</span>
+</div>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-3">
+<div class="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition hover:bg-white dark:hover:bg-black">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 block" style="font-size: 20px;">favorite</span>
+</div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="High top basketball sneakers" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDg0JQr59P8Ox-xQX_LR_gW-dH42uZm2k_kheymjQ5MOqzvc6pjecsIacIEnk7FStqGKBjSgreHQQQyoz9V3HQz8--iEUMrKesuAqLM3R8CPTqYRcZiv6-jQuNm5Ncv0v31SLKZkSku44PSYWlAGFGNWvXaDUxlKqSyOlDxbK0NXYGZGzlN6Yv5RiHUtu6U866d7yq7yys0KEYo0_3aLKWY8nULdFH-MW8M6_bke7EIZxaCzqEiUNXnhHrJ4eZpHh48ox34CXljYHY");'></div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#1b0e0e] dark:text-white text-sm font-semibold leading-tight line-clamp-2 h-10">Jordan Air 1 Mid SE</h3>
+<div class="flex items-center gap-2">
+<p class="text-[#1b0e0e] dark:text-white text-base font-bold leading-normal">$145.00</p>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500" style="font-size: 14px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-gray-500 dark:text-gray-400 text-xs font-medium">4.9 (210)</span>
+</div>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 mb-3">
+<div class="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/80 dark:bg-black/40 backdrop-blur-sm transition hover:bg-white dark:hover:bg-black">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300 block" style="font-size: 20px;">favorite</span>
+</div>
+<div class="absolute top-2 left-2 z-10 px-2 py-1 rounded-md bg-primary text-white text-[10px] font-bold uppercase tracking-wide">
+                            -15% Sale
+                        </div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Yellow canvas shoes side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBlhw5IgT7qf5QmEsEAbHQSqq76tiF1NWXUbrBOohFiiXWLxtcbr95Yy7n0Z_7YP0kJyVuK6WobSAiLD-aa4HroolGmm1mcBBzhwsUljKXvV5rUZQYAAU5mPk3NtyCBMYwZKGbdnP19Q__WMH2F4FRwpWDtIaaGntaCrp0rvte0AphExac55mehbpizTOGUgUOb8mibJ-v3dQqZFm0Kx7hiGbh91wK1kbnZeAiutqPh1As5qabRd0yvP2_XcP-XudHiSp0KCfWMus4");'></div>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-[#1b0e0e] dark:text-white text-sm font-semibold leading-tight line-clamp-2 h-10">Converse Chuck 70</h3>
+<div class="flex items-center gap-2">
+<p class="text-primary text-base font-bold leading-normal">$75.00</p>
+<p class="text-gray-400 text-xs font-medium line-through">$89.00</p>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-yellow-500" style="font-size: 14px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-gray-500 dark:text-gray-400 text-xs font-medium">4.4 (86)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Loading Skeleton (Simulated) -->
+<div class="grid grid-cols-2 gap-x-4 gap-y-6 px-4 pb-4 animate-pulse">
+<div class="flex flex-col gap-3">
+<div class="w-full aspect-[3/4] rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-4 w-3/4 bg-gray-200 dark:bg-gray-800 rounded"></div>
+<div class="h-4 w-1/2 bg-gray-200 dark:bg-gray-800 rounded"></div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="w-full aspect-[3/4] rounded-xl bg-gray-200 dark:bg-gray-800"></div>
+<div class="h-4 w-3/4 bg-gray-200 dark:bg-gray-800 rounded"></div>
+<div class="h-4 w-1/2 bg-gray-200 dark:bg-gray-800 rounded"></div>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Fixed) -->
+<div class="fixed bottom-0 w-full max-w-md border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-[#211111] px-6 pb-6 pt-3 z-50">
+<div class="flex justify-between items-end">
+<a class="flex flex-col items-center justify-end gap-1 text-gray-400 dark:text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px;">home</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Home</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px; font-variation-settings: 'FILL' 1;">search</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Shop</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-400 dark:text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px;">favorite</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Wishlist</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-gray-400 dark:text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+<p class="text-[10px] font-medium leading-normal tracking-[0.015em]">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>
